@@ -7,13 +7,13 @@ use WWW::Mechanize::Chrome;
 my $mech = WWW::Mechanize::Chrome->new(
   autodie => 0,               # Treat HTTP errors as non-fatal
   headless => 0,              # Disable Chrome built-in headless mode
-  host => '127.0.0.1',        # Host on which Chrome DevTools listens for commands
-  port => 9222,               # Port on which Chrome DevTools listens for commands
+  host => '127.0.0.1',        # Host on which DevTools listens for commands
+  port => 9222,               # Port on which DevTools listens for commands
   cleanup_signal => 'TERM',   # The signal that is sent to Chrome to shut it down
   start_url => 'about:blank', # Immediately navigate to a given address
-  autoclose => 0,             # Do not close Chrome at the end of execution
+  autoclose => 0,             # Do not close browser at the end of execution
   separate_session => 1,      # Create a new session without cookies
-  startup_timeout => 10,      # Time waiting for the Chrome launch
+  startup_timeout => 10,      # Time waiting for a browser to launch
   mute_audio => 0,            # Disable audio channel
 );
 
