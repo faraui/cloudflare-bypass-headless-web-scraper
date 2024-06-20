@@ -1,27 +1,32 @@
-#!/bin/bash
-
 sudo echo -n
 
-if ! command -v perl > /dev/null \
-|| ! command -v Xvfb > /dev/null \
-|| ! command -v xwd > /dev/null \
-|| ! command -v convert > /dev/null
+if ! command -v perl > /dev/null || ! command -v Xvfb > /dev/null \
+|| ! command -v xwd > /dev/null || ! command -v convert > /dev/null
 then if [[ "$OSTYPE" == "linux-gnu"* ]]
      then if [ -f /etc/debian_version ]
           then echo -n 'Installing requirements ...'
-               sudo apt install -y perl Xvfb xwd ImageMagick > /dev/null 2> requirements.log \
-               && echo ' OK' && rm -rf requirements.log \
-               || echo ' FAIL' && echo "See 'requirements.log' for details" >&2 && exit 2
+               ( sudo apt install -y perl Xvfb xwd ImageMagick > /dev/null 2> requirements.log && \
+                 rm -rf requirements.log && \
+                 echo ' OK' ) || \
+               ( echo ' FAIL'
+                 echo "See 'requirements.log' for details" >&2
+                 exit 2 )
           elif [ -f /etc/redhat-release ]
           then echo -n 'Installing requirements ...'
-               sudo yum install -y perl xorg-x11-server-Xvfb xwd ImageMagick > /dev/null \
-               && echo ' OK' && rm -rf requirements.log \
-               || echo ' FAIL' && echo "See 'requirements.log' for details" >&2 && exit 2
+               ( sudo yum install -y perl xorg-x11-server-Xvfb xwd ImageMagick > /dev/null 2> requirements.log && \
+                 rm -rf requirements.log && \
+                 echo ' OK' ) || \
+               ( echo ' FAIL'
+                 echo "See 'requirements.log' for details" >&2
+                 exit 2 )
           elif [ -f /etc/arch-release ]
           then echo -n 'Installing requirements ...'
-               sudo pacman -Sy perl xorg-server-xvfb xwd ImageMagick --noconfirm > /dev/null \
-               && echo ' OK' && rm -rf requirements.log \
-               || echo ' FAIL' && echo "See 'requirements.log' for details" >&2 && exit 2
+               ( sudo pacman -Sy perl xorg-server-xvfb xwd ImageMagick --noconfirm > /dev/null 2> requirements.log && \
+                 rm -rf requirements.log && \
+                 echo ' OK' ) || \
+               ( echo ' FAIL'
+                 echo "See 'requirements.log' for details" >&2
+                 exit 2 )
           fi
      elif [[ "$OSTYPE" == "darwin"* ]]
      then if ! command -v brew > /dev/null
@@ -36,13 +41,12 @@ fi
 
 if [ -f extlib.tar.bz2 ]
 then echo -n 'Decompressing external librarie ...'
-     { tar -xjf extlib.tar.bz2 \
-       && rm -rf extlib.tar.bz2
-     } 2> decompress.log \
-     && echo ' OK' && rm -rf decompress.log \
-     || echo ' FAIL' \
-        && echo "See 'decompress.log' for details" >&2 \
-        && exit 2
+     ( tar -xjf extlib.tar.bz2 2> decompress.log && \
+       rm -rf extlib.tar.bz2 decompress.log && \
+       echo ' OK' ) || \
+     ( echo ' FAIL'
+       echo "See 'decompress.log' for details" >&2
+       exit 2 )
 elif [ ! -d extlib ]
 then echo "Error. Neither 'extlib/' nor 'extlib.tar.bz2' is present" >&2
      exit 2
@@ -98,7 +102,6 @@ do read -e -p 'Specify the absolute path of the compatible browser executable or
    fi
 done
 
-
 if [[ -z $BROWSER ]]
 then read -e -p "Download 'Ungoogled Chromium' here [Y] or exit to install 'Chromium' or 'Google Chrome' manually [n]? "
      if [[ $REPLY =~ ^[nNmMbBтТьЬиИ] ]]
@@ -109,8 +112,8 @@ then read -e -p "Download 'Ungoogled Chromium' here [Y] or exit to install 'Chro
           )"
           echo -n "Downloading 'Ungoogled Chromium $REMOTE_VERSION' for Linux 64bit ..."
           FULL_NAME="ungoogled-chromium_$(echo $REMOTE_VERSION)_linux.tar.xz"
-          wget -o $FULL_NAME \
-          https://github.com/ungoogled-software/ungoogled-chromium-portablelinux/releases/download/$LATEST/$FULL_NAME \
+          wget -O $FULL_NAME \
+          https://github.com/ungoogled-software/ungoogled-chromium-portablelinux/releases/download/$REMOTE_VERSION/$FULL_NAME \
           2> download.log && echo ' OK' && rm -rf download.log \
           || echo ' FAIL' && echo "See 'download.log' for details" >&2 && exit 2
           echo -n "Decompressing '$FULL_NAME' ..."
