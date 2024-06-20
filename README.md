@@ -11,7 +11,7 @@ The one and only inconvenience caused by this modificitation is the neglection o
 > If no web-pages screenshots are to be taken, **xwd** and **convert** (**ImageMagick**) may not be installed.\
 > To not install these automatically, edit the `main.sh` appropriately.
 
-As opposed to most other web-scrapers, this template does *not* require user to have a certain **WebDriver**, but only a certain **Google Chrome** or **Chromium** instance. If no such is present on a users operating system, one could be downloaded and installed automatically when `main.sh` is executed.
+As opposed to most other web-scrapers, this template does *not* require user to have a certain **WebDriver**, but only a certain **Google Chrome** or **Chromium** instance. If no such is present on a user operating system, one could be downloaded and installed automatically when `main.sh` is executed.
 
 **WebDriver** is *not* required, since this template is working with **Google Chrome** or **Chromium** directly via **DevTools** and a local **WebSockets** connections. Such solution reduces the number of dependencies.
 
