@@ -35,9 +35,9 @@ then if [[ "$OSTYPE" == "linux-gnu"* ]]
           then /bin/bash -c "$(curl -fsSL
                https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           fi
-          echo 'yes' | brew install perl > /dev/null
-          echo 'yes' | brew install XQuartz > /dev/null
-          echo 'yes' | brew install imagemagick > /dev/null
+          yes | brew install perl > /dev/null
+          yes | brew install XQuartz > /dev/null
+          yes | brew install imagemagick > /dev/null
      fi
 fi
 
