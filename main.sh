@@ -152,8 +152,8 @@ DISPLAY=:9222 $BROWSER \
 
 perl -I "$PWD/extlib/" scraper.pl
 
-SCREENSHOT=$(date -I)
-xwd -root -display :9222 -out $SCREENSHOT.xwd
-convert $SCREENSHOT.xwd $SCREENSHOT.png
-rm -rf $SCREENSHOT.xwd
+DATE_STAMP=$(date -Iseconds)
+xwd -root -display :9222 -out $DATE_STAMP.xwd
+convert $DATE_STAMP.xwd $DATE_STAMP.png
+rm -rf $DATE_STAMP.xwd
 sudo pkill -f 'Xvfb :9222'
