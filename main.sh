@@ -125,8 +125,8 @@ then read -e -p "Download 'Ungoogled Chromium' here [Y] or exit to install 'Chro
           echo -n "Decompressing 'ungoogled-chromium.tar.xz' ..."
           ( tar -xf ungoogled-chromium.tar.xz 2> decompress.log && \
             rm -rf ungoogled-chromium.tar.xz \
-                   ungoogled-chromium/chrome_*
-                   ungoogled-chromium/chromed*
+                   ungoogled-chromium/chrome_* \
+                   ungoogled-chromium/chromed* \
                    decompress.log && \
             echo ' OK' ) || \
           ( echo ' FAIL'
