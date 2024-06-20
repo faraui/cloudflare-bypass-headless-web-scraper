@@ -5,7 +5,7 @@
 
 Headless web-scraper template that bypasses **Cloudflare** protection. Working on **X** **v**irtual **f**rame **b**uffer (**Xvfb**) and **Perl** modified **WWW::Mechanize::Chrome** module.
 
-This modification involves neither new methods nor functions, but much of fixes and alterations, including the removal of functionality that is unnecessary for this template, such as methods with **Windows**-specific requirements. This modified **WWW::Mechanize::Chrome** is provided here with all its dependencies and requirements, a total size of which, including **WWW::Mechanize::Chrome**, is less than 4.9 Mb.
+This modification involves neither new methods nor functions, but much of fixes and alterations, including the removal of functionality that is unnecessary for this template, such as **Windows**-specific requirements. This modified **WWW::Mechanize::Chrome** is provided here with all its dependencies, a total size of which, including **WWW::Mechanize::Chrome** itself, is less than 4.9 Mb.
 
 The main advantage caused by this modification is the ability of `$mech->content_as_pdf(%options)` content rendering method to succesfully work even if a browser is not executed in its built-in headless mode; see [metacpan.org/pod/WWW::Mechanize::Chrome#$mech->content_as_pdf(%options)](https://metacpan.org/pod/WWW::Mechanize::Chrome#$mech-%3Econtent_as_pdf(%25options)).
 
