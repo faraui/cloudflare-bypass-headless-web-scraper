@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-ISC-lightblue.svg)](https://raw.githubusercontent.com/faraui/cloudflare-bypass-headless-web-scraper/main/LICENSE.txt)
 [![Stars](https://img.shields.io/badge/Stars->100-lightyellow.svg)](https://github.com/faraui/cloudflare-bypass-headless-web-scraper/stargazers)
 
-Headless web-scraper template that bypasses **Cloudflare** protection. Working on **X** **v**irtual **f**rame **b**uffer (**Xvfb**) and **Perl** module**WWW::Mechanize::Chrome**, modified to not implement methods with **macOS**- or **Windows**-specific requirements. This modified **WWW::Mechanize::Chrome** is provided here with all its dependencies and requirements, a total size of which, including **WWW::Mechanize::Chrome**, is less than `4.9 Mb`.
+Headless web-scraper template that bypasses **Cloudflare** protection. Working on **X** **v**irtual **f**rame **b**uffer (**Xvfb**) and **Perl** module **WWW::Mechanize::Chrome**, modified to not implement methods with **macOS**- or **Windows**-specific requirements. This modified **WWW::Mechanize::Chrome** is provided here with all its dependencies and requirements, a total size of which, including **WWW::Mechanize::Chrome**, is less than `4.9 Mb`.
 
 The one and only inconvenience caused by this modificitation is the neglection of **Imager::File::PNG** module that is used to process web-page screenshots. However, **xwd** and **convert** utilities combination can be and is used in this template instead in order to achieve a comparable results.
 
@@ -22,6 +22,8 @@ As opposed to most other web-scrapers, this template does *not* require user to 
 5. While user specifies non-compatible executable or command, the latter prompt is again shown.
 6. If user chose to not specify the absolute path of the compatible browser executable or its command, the prompt to download, install and use the latest **Ungoogled** **Chromium** automatically or exit to download certain compatible browser executable manually is shown.
 7. The compatible browser executable specified in one of the prior phases is executed on a virtual screen.
+8. The `scraper.pl` is launched and connected to such browser being executed via local **WebSockets**.
+9. A virtual screen state is saved via **xwd** and then converted to `.png` via **convert**.
 
 ## Installation
 ```bash
