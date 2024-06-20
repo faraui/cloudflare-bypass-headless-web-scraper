@@ -5,7 +5,7 @@
 
 Headless web-scraper template that bypasses **Cloudflare** protection. Working on **X** **v**irtual **f**rame **b**uffer (**Xvfb**) and **Perl** modified **WWW::Mechanize::Chrome** module.
 
-This modification involves neither new methods nor functions, but much of fixes and alterations, including the removal of functionality that is unnecessary for this template, such as removal of methods with **Windows**-specific requirements. This modified **WWW::Mechanize::Chrome** is provided here with all its dependencies and requirements, a total size of which, including **WWW::Mechanize::Chrome**, is less than 4.9 Mb.
+This modification involves neither new methods nor functions, but much of fixes and alterations, including the removal of functionality that is unnecessary for this template, such as methods with **Windows**-specific requirements. This modified **WWW::Mechanize::Chrome** is provided here with all its dependencies and requirements, a total size of which, including **WWW::Mechanize::Chrome**, is less than 4.9 Mb.
 
 The main advantage caused by this modification is the ability 
 
