@@ -132,12 +132,18 @@ then read -e -p "Download 'Ungoogled Chromium' here [Y] or exit to install 'Chro
      fi
 fi
 
-Xvfb :9222 & DISPLAY=:9222 $BROWSER \
---disable-gpu --disable-software-rasterizer \
---remote-debugging-port=9222 --remote-allow-origins=* 2> /dev/null &
+Xvfb :9222 &
+DISPLAY=:9222 $BROWSER \
+--no-sandbox \
+--disable-gpu \
+--disable-software-rasterizer \
+--remote-debugging-port=9222 \
+--remote-allow-origins=* 2> /dev/null &
 
 perl -I "$PWD/extlib/" scraper.pl
 
-xwd -root -display :9222 -out screenshot.xwd
-convert screenshot.xwd screenshot2.png
+SCREENSHOT=$(date -I)
+xwd -root -display :9222 -out $SCREENSHOT.xwd
+convert $SCREENSHOT.xwd $SCREENSHOT.png
+rm -rf $SCREENSHOT.xwd
 sudo pkill Xvfb
