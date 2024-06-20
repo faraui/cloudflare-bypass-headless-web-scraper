@@ -41,7 +41,7 @@ then if [[ "$OSTYPE" == "linux-gnu"* ]]
      fi
 fi
 
-if [ -f extlib.tar.bz2 ]
+if [ -s extlib.tar.bz2 ]
 then echo -n 'Decompressing external librarie ...'
      ( tar -xjf extlib.tar.bz2 2> decompress.log && \
        rm -rf extlib.tar.bz2 decompress.log && \
@@ -54,8 +54,8 @@ then echo "Error. Neither 'extlib/' nor 'extlib.tar.bz2' is present" >&2
      exit 2
 fi
 
-if [ -f chromium/chrome ]
-then echo "Found compatible browser with 'chromium/chrome' path from the current directory"
+if ! ungoogled-chromium/chrome --product-version 2> /dev/null
+then echo "Found compatible browser with 'ungoogled-chromium/chrome' path from the current directory"
      read -e -p 'Should it be used in the execution? [Y/n] '
      if [[ ! $REPLY =~ ^[nNmMbBтТьЬиИ] ]]
      then BROWSER='chromium/chrome'
@@ -113,23 +113,26 @@ then read -e -p "Download 'Ungoogled Chromium' here [Y] or exit to install 'Chro
             | grep -m 1 '><a' | sed 's/.*">//; s/<.*//'
           )"
           echo -n "Downloading 'Ungoogled Chromium $REMOTE_VERSION' for Linux 64bit ..."
-          NAME="ungoogled-chromium_$(echo $REMOTE_VERSION)_linux.tar.xz"
-          SUF="$REMOTE_VERSION/$NAME"
-          ( wget -O $NAME https://github.com/ungoogled-software/ungoogled-chromium-portablelinux/releases/download/$SUF 2> download.log && \
+          SUFFIX="$REMOTE_VERSION/ungoogled-chromium_$(echo $REMOTE_VERSION)_linux.tar.xz"
+          ( wget -O ungoogled-chromium.tar.xz \
+                 https://github.com/ungoogled-software/ungoogled-chromium-portablelinux/releases/download/$SUFFIX \
+                 2> download.log && \
             rm -rf download.log && \
             echo ' OK' ) || \
           ( echo ' FAIL'
             echo "See 'download.log' for details" >&2
             exit 2 )
-          echo -n "Decompressing '$NAME' ..."
-          ( tar -xf $NAME 2> decompress.log > chromium/ && \
-            rm -rf $NAME decompress.log && \
-            mv $NAME chromium 
+          echo -n "Decompressing 'ungoogled-chromium.tar.xz' ..."
+          ( tar -xf ungoogled-chromium.tar.xz 2> decompress.log && \
+            rm -rf ungoogled-chromium.tar.xz \
+                   ungoogled-chromium/chrome_*
+                   ungoogled-chromium/chromed*
+                   decompress.log && \
             echo ' OK' ) || \
           ( echo ' FAIL'
             echo "See 'decompress.log' for details" >&2
             exit 2 )
-          BROWSER='chromium'
+          BROWSER='ungoogled-chromium/chrome'
      fi
 fi
 
