@@ -106,7 +106,7 @@ do read -e -p 'Specify the absolute path of the compatible browser executable or
    fi
 done
 
-if [[ -z $BROWSER ]] && [[ -z $UNGOOGLED_CHROMIUM ]]
+if [[ -z $BROWSER ]]
 then read -e -p "Download 'Ungoogled Chromium' here [Y] or exit to install 'Chromium' or 'Google Chrome' manually [n]? "
      if [[ $REPLY =~ ^[nNmMbBтТьЬиИ] ]]
      then exit 0
