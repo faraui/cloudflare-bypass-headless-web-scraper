@@ -16,7 +16,7 @@ As opposed to most other web-scrapers, this template does *not* require user to 
 ## Execution phases
 0. Installation of yet not installed required utilities from the list: `perl5`, `Xvfb`, `xwd`, `convert`.
 1. Decompression of the external librarie archive if it is not decompressed yet.
-2. Sarch for a compatible browser executable from the currect directory and then from the commands.
+2. Search for a compatible browser executable from the currect directory and then from the commands.
 3. For these found executables, the prompt to use one from the current directory and the latest version one from the commands is shown.
 4. If no executables found or user chose to use none of them, then the prompt to specify the absolute path of the compatible browser executable or its command is shown.
 5. While user specifies non-compatible executable or command, the latter prompt is again shown.
