@@ -54,11 +54,11 @@ then echo "Error. Neither 'extlib/' nor 'extlib.tar.bz2' is present" >&2
      exit 2
 fi
 
-if [ -f chrome-linux-64/chrome ]
+if [ -f chromium/chrome ]
 then echo "Found compatible browser with 'chrome-linux-64/chrome' path from the current directory"
      read -e -p 'Should it be used in the execution? [Y/n] '
      if [[ ! $REPLY =~ ^[nNmMbBтТьЬиИ] ]]
-     then BROWSER='chrome-linux-64/chrome'
+     then BROWSER='chromium/chrome'
      fi
 fi
 
@@ -122,13 +122,14 @@ then read -e -p "Download 'Ungoogled Chromium' here [Y] or exit to install 'Chro
             echo "See 'download.log' for details" >&2
             exit 2 )
           echo -n "Decompressing '$NAME' ..."
-          ( tar -xf $NAME 2> decompress.log && \
-            rm -rf $NAME && \
+          ( tar -xf $NAME 2> decompress.log > chromium/ && \
+            rm -rf $NAME decompress.log && \
+            mv $NAME chromium 
             echo ' OK' ) || \
           ( echo ' FAIL'
             echo "See 'decompress.log' for details" >&2
             exit 2 )
-          BROWSER='chrome-linux-64/chrome'
+          BROWSER='chromium'
      fi
 fi
 
