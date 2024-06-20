@@ -61,8 +61,7 @@ then echo "Found compatible browser '$LATEST_LOCAL/chrome' in the current direct
      read -e -p 'Should it be used in the execution? [Y/n] '
      if [[ ! $REPLY =~ ^[nNmMbBтТьЬиИ] ]]
      then BROWSER="$LATEST_LOCAL/chrome"
-     fi
-else 
+     fi 
 fi
 
 if [[ -z $BROWSER ]]
