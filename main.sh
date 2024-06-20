@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo echo -n
 
 if ! command -v perl > /dev/null || ! command -v Xvfb > /dev/null \
