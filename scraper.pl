@@ -4,6 +4,8 @@ use Log::Log4perl qw(:easy);
 Log::Log4perl->easy_init($ERROR);
 use WWW::Mechanize::Chrome;
 
+print "Web-scraper execution ..."
+
 my $mech = WWW::Mechanize::Chrome->new(
   autodie => 0,               # Treat HTTP errors as non-fatal
   headless => 0,              # Disable Chrome built-in headless mode
@@ -18,4 +20,6 @@ my $mech = WWW::Mechanize::Chrome->new(
 );
 
 $mech->get('https://www.cloudflare.com/');
-#$mech->sleep( 10 );
+$mech->sleep( 10 );
+
+print " OK\n"
