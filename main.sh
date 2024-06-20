@@ -55,7 +55,7 @@ then echo "Error. Neither 'extlib/' nor 'extlib.tar.bz2' is present" >&2
 fi
 
 if [ -f chromium/chrome ]
-then echo "Found compatible browser with 'chrome-linux-64/chrome' path from the current directory"
+then echo "Found compatible browser with 'chromium/chrome' path from the current directory"
      read -e -p 'Should it be used in the execution? [Y/n] '
      if [[ ! $REPLY =~ ^[nNmMbBтТьЬиИ] ]]
      then BROWSER='chromium/chrome'
