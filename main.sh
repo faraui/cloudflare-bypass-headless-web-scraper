@@ -151,4 +151,4 @@ SCREENSHOT=$(date -I)
 xwd -root -display :9222 -out $SCREENSHOT.xwd
 convert $SCREENSHOT.xwd $SCREENSHOT.png
 rm -rf $SCREENSHOT.xwd
-sudo pkill -f "Xvfb :9222"
+sudo pkill -f 'Xvfb :9222'
