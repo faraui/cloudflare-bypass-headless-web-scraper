@@ -133,6 +133,7 @@ then read -e -p "Download 'Ungoogled Chromium' here [Y] or exit to install 'Chro
 fi
 
 Xvfb :9222 &
+
 DISPLAY=:9222 $BROWSER \
 --no-sandbox \
 --disable-gpu \
