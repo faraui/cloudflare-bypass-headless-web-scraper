@@ -4,8 +4,6 @@ use Log::Log4perl qw(:easy);
 Log::Log4perl->easy_init($ERROR);
 use WWW::Mechanize::Chrome;
 
-print "Web-scraper execution ..."
-
 my $mech = WWW::Mechanize::Chrome->new(
   autodie => 0,               # Treat HTTP errors as non-fatal
   headless => 0,              # Disable Chrome built-in headless mode
@@ -19,7 +17,13 @@ my $mech = WWW::Mechanize::Chrome->new(
   mute_audio => 0,            # Disable audio channel
 );
 
-$mech->get('https://www.cloudflare.com/');
-$mech->sleep( 10 );
+print "Web-scraper execution ...";
 
-print " OK\n"
+$mech->get('https://www.cloudflare.com/');
+$mech->sleep( 6 );
+
+my $page_pdf = $mech->content_as_pdf(
+    filename => 'doc.pdf',
+);
+
+print " OK\n";
