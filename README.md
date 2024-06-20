@@ -11,9 +11,9 @@ The one and only inconvenience caused by this modificitation is the neglection o
 > If no web-pages screenshots are to be taken, **xwd** and **convert** (**ImageMagick**) may not be installed.\
 > To not install these automatically, edit the `main.sh` appropriately.
 
-As opposed to most other web-scrapers, this template does *not* require user to have a certain **WebDriver**, but only a certain **Google Chrome** or **Chromium** instance. If no such is present on a user operating system, one could be downloaded and installed automatically when `main.sh` is executed.
+As opposed to most other web-scrapers, this template does *not* require user to have a certain **WebDriver**, but only a certain **Chromium** or **Google Chrome** instance. If no such is present on a user operating system, one could be downloaded and installed automatically when `main.sh` is executed.
 
-**WebDriver** is *not* required, since this template is working with **Google Chrome** or **Chromium** directly via **DevTools** and a local **WebSockets** connections. This solution reduces the number of dependencies.
+**WebDriver** is *not* required, since this template is working with **Chromium** or **Google Chrome** directly via **DevTools** and a local **WebSockets** connections. This solution reduces the number of dependencies.
 
 **Perl** is in use, as it is installed on most **Linux** systems by default and it is effecient to process text with, which is essential for a parser to be written as soon as possible. In conclusion, it may be noted that this template can be succesfully executed in a **Docker** container with little to no modifications.
 
