@@ -61,8 +61,7 @@ then echo "Found compatible browser '$LOCAL_VERSION/chrome' in the current direc
      read -e -p 'Should it be used in the execution? [Y/n] '
      if [[ ! $REPLY =~ ^[nNmMbBтТьЬиИ] ]]
      then BROWSER="$LOCAL_VERSION/chrome"
-     fi
-else 
+     fi 
 fi
 
 if [[ -z $BROWSER ]]
