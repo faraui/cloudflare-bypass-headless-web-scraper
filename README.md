@@ -7,9 +7,9 @@ Headless web-scraper template that bypasses **Cloudflare** protection. Working o
 
 This modification involves neither new methods nor functions, but much of fixes and alterations, including the removal of functionality that is unnecessary for this template, such as methods with **Windows**-specific requirements. This modified **WWW::Mechanize::Chrome** is provided here with all its dependencies and requirements, a total size of which, including **WWW::Mechanize::Chrome**, is less than 4.9 Mb.
 
-The main advantage caused by this modification is the ability 
+The main advantage caused by this modification is the ability of `$mech->content_as_pdf(%options)` content rendering method to succesfully work even if a browser is not executed in its built-in headless mode; see https://metacpan.org/pod/WWW::Mechanize::Chrome#$mech-%3Econtent_as_pdf(%25options).
 
-The one and only inconvenience caused by this modificitation is the neglection of **Imager::File::PNG** module that is used to process web-page screenshots. However, **xwd** and **convert** utilities combination can be and is used in this template instead in order to achieve a comparable results.
+The one and only inconvenience caused by this modificitation is the neglection of **Imager** module that is used to process screenshots (e.g. in `$mech->content_as_png()` method). However, **xwd** and **convert** utilities combination can be and is used in this template instead in order to achieve a comparable results.
 
 > [!NOTE]
 > If no web-pages screenshots are to be taken, **xwd** and **convert** (**ImageMagick**) may not be installed.\
