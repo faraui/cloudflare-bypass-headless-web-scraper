@@ -14,12 +14,12 @@ then if [[ "$OSTYPE" == "linux-gnu"* ]]
                || echo ' FAIL' && echo "See 'requirements.log' for details" >&2 && exit 2
           elif [ -f /etc/redhat-release ]
           then echo -n 'Installing requirements ...'
-               sudo yum install -y perl xorg-x11-server-Xvfb xwd ImageMagick > /dev/null
+               sudo yum install -y perl xorg-x11-server-Xvfb xwd ImageMagick > /dev/null \
                && echo ' OK' && rm -rf requirements.log \
                || echo ' FAIL' && echo "See 'requirements.log' for details" >&2 && exit 2
           elif [ -f /etc/arch-release ]
           then echo -n 'Installing requirements ...'
-               sudo pacman -Sy perl xorg-server-xvfb xwd ImageMagick --noconfirm > /dev/null
+               sudo pacman -Sy perl xorg-server-xvfb xwd ImageMagick --noconfirm > /dev/null \
                && echo ' OK' && rm -rf requirements.log \
                || echo ' FAIL' && echo "See 'requirements.log' for details" >&2 && exit 2
           fi
