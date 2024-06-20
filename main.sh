@@ -124,7 +124,7 @@ Xvfb :9222 & DISPLAY=:9222 $BROWSER \
 --disable-gpu --disable-software-rasterizer \
 --remote-debugging-port=9222 --remote-allow-origins=* 2> /dev/null &
 
-perl -I "$PWD/extlib/" scrape.pl
+perl -I "$PWD/extlib/" scraper.pl
 
 xwd -root -display :9222 -out screenshot.xwd
 convert screenshot.xwd screenshot2.png
