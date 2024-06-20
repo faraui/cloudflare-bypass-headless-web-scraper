@@ -26,7 +26,7 @@ As opposed to most other web-scrapers, this template does *not* require user to 
 5. While user specifies non-compatible executable or command, the latter prompt is again shown.
 6. If user chose to not specify the absolute path of the compatible browser executable or its command, the prompt to download, install and use the latest **Ungoogled** **Chromium** automatically or exit to download certain compatible browser executable manually is shown.
 7. The compatible browser executable specified in one of the prior phases is executed on a virtual screen.
-8. The `scraper.pl` is launched and connected to such browser being executed via local **WebSockets**.
+8. The `scraper.pl` is launched and connected to this browser via local **WebSockets**.
 9. A virtual screen state is saved via **xwd** and then converted to `.png` via **convert**.
 
 ## Installation
