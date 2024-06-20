@@ -18,9 +18,9 @@ As opposed to most other web-scrapers, this template does *not* require user to 
 1. Decompression of the external librarie archive if it is not decompressed yet.
 2. Search for a compatible browser executable from the currect directory and then from the commands.
 3. For these found executables, the prompt to use one from the current directory and the latest version one from the commands is shown.
-4. If no executables found or user chose to use none of them, then the prompt to specify the absolute path of the compatible browser executable or its command is shown.
+4. If no executables found or user chose to use none of them, the prompt to specify the absolute path of the compatible browser executable or its command is shown.
 5. While user specifies non-compatible executable or command, the latter prompt is again shown.
-6. If user chose to not specify the absolute path of the compatible browser executable or its command, then the prompt to download, install and use the latest Ungoogled Chromium automatically or exit to download certain compatible browser executable manually is shown.
+6. If user chose to not specify the absolute path of the compatible browser executable or its command, the prompt to download, install and use the latest Ungoogled Chromium automatically or exit to download certain compatible browser executable manually is shown.
 7. The compatible browser executable specified in one of the prior phases is executed on a virtual screen.
 
 ## Installation
