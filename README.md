@@ -8,7 +8,7 @@ Headless web-scraper template that bypasses **Cloudflare** protection. Working o
 The one and only inconvenience caused by this modificitation is the neglection of **Imager::File::PNG** module that is used to process web-page screenshots. However, **xwd** and **convert** utilities combination can be and is used in this template instead in order to achieve a comparable results.
 
 > [!NOTE]
-> If no web-pages screenshots are willed to be taken, **xwd** and **convert** (**ImageMagick**) may not be installed.\
+> If no web-pages screenshots are to be taken, **xwd** and **convert** (**ImageMagick**) may not be installed.\
 > To not install these automatically, edit the `main.sh` appropriately.
 
 As opposed to most other web-scrapers, this template does *not* require user to have a certain **WebDriver**, but only a certain **Google Chrome** or **Chromium** instance. If no such is present on a users operating system, one could be downloaded and installed automatically when `main.sh` is executed.
