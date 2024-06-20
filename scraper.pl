@@ -23,7 +23,7 @@ $mech->get('https://www.cloudflare.com/');
 $mech->sleep( 6 );
 
 my $page_pdf = $mech->content_as_pdf(
-    filename => 'doc.pdf',
+    filename => 'cloudflare.pdf',
 );
 
 print " OK\n";
