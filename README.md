@@ -32,7 +32,7 @@ As opposed to most other web-scrapers, this template does *not* require user to 
 7. The compatible browser executable specified in one of the prior phases is executed on a virtual screen.
 8. The `scraper.pl` is launched and connected to this browser via local **WebSockets**.
 9. During `scraper.pl` execution, https://cloudflare.com/ web-page is loaded and saved as `.pdf`.
-10. After the succesfull execution of `scraper.pl`, a virtual screen state is saved via **xwd** and then converted to `.png` via **convert**.
+10. A virtual screen state is saved via **xwd** and then converted to `.png` via **convert**.
 
 ## Installation
 ```bash
