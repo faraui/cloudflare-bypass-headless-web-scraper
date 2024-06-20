@@ -113,14 +113,21 @@ then read -e -p "Download 'Ungoogled Chromium' here [Y] or exit to install 'Chro
             | grep -m 1 '><a' | sed 's/.*">//; s/<.*//'
           )"
           echo -n "Downloading 'Ungoogled Chromium $REMOTE_VERSION' for Linux 64bit ..."
-          FULL_NAME="ungoogled-chromium_$(echo $REMOTE_VERSION)_linux.tar.xz"
-          wget -O $FULL_NAME \
-          https://github.com/ungoogled-software/ungoogled-chromium-portablelinux/releases/download/$REMOTE_VERSION/$FULL_NAME \
-          2> download.log && echo ' OK' && rm -rf download.log \
-          || echo ' FAIL' && echo "See 'download.log' for details" >&2 && exit 2
-          echo -n "Decompressing '$FULL_NAME' ..."
-          tar -xf $FULL_NAME 2> decompress.log && echo ' OK' && rm -rf $FULL_NAME \
-          || echo ' FAIL' && echo "See 'decompress.log' for details" >&2 && exit 2
+          NAME="ungoogled-chromium_$(echo $REMOTE_VERSION)_linux.tar.xz"
+          SUF="$REMOTE_VERSION/$NAME"
+          ( wget -O $NAME https://github.com/ungoogled-software/ungoogled-chromium-portablelinux/releases/download/$SUF 2> download.log && \
+            rm -rf download.log && \
+            echo ' OK' ) || \
+          ( echo ' FAIL'
+            echo "See 'download.log' for details" >&2
+            exit 2 )
+          echo -n "Decompressing '$NAME' ..."
+          ( tar -xf $NAME 2> decompress.log && \
+            rm -rf $NAME && \
+            echo ' OK' ) || \
+          ( echo ' FAIL'
+            echo "See 'decompress.log' for details" >&2
+            exit 2 )
           BROWSER='chrome-linux-64/chrome'
      fi
 fi
