@@ -54,12 +54,15 @@ then echo "Error. Neither 'extlib/' nor 'extlib.tar.bz2' is present" >&2
      exit 2
 fi
 
-if ! ungoogled-chromium/chrome --product-version 2> /dev/null
-then echo "Found compatible browser with 'ungoogled-chromium/chrome' path from the current directory"
+
+LOCAL_VERSION="$(find . -type f -name 'chrome' -exec dirname {} \; | sort -V | head -1 | sed 's/\.\///')"
+if [[ -n $LOCAL_VERSION ]]
+then echo "Found compatible browser '$LOCAL_VERSION/chrome' in the current directory"
      read -e -p 'Should it be used in the execution? [Y/n] '
      if [[ ! $REPLY =~ ^[nNmMbBтТьЬиИ] ]]
-     then BROWSER='chromium/chrome'
+     then BROWSER="$LOCAL_VERSION/chrome"
      fi
+else 
 fi
 
 if [[ -z $BROWSER ]]
@@ -76,13 +79,13 @@ then BROWSERS=(
         fi
      done
 
-     LOCAL_VERSION="$(echo -n "${BROWSERS[@]}" | sed 's/ /\n/g' | sort -V | head -1 | sed 's/:/ /')"
-     if [[ $LOCAL_VERSION =~ ' 0'$ ]]
+     COMMAND_VERSION="$(echo -n "${BROWSERS[@]}" | sed 's/ /\n/g' | sort -V | head -1 | sed 's/:/ /')"
+     if [[ $COMMAND_VERSION =~ ' 0'$ ]]
      then echo "Neither 'Chromium' nor 'Google Chrome' was found on your system"
-     else echo "The latest compatible browser release that was found is '$LOCAL_VERSION'"
+     else echo "The latest compatible browser release that was found is '$COMMAND_VERSION'"
           read -e -p 'Should it be used in the execution? [Y/n] '
           if [[ ! $REPLY =~ ^[nNmMbBтТьЬиИ] ]]
-          then BROWSER="$(echo $LOCAL_VERSION | sed 's/ *//')"
+          then BROWSER="$(echo $COMMAND_VERSION | sed 's/ *//')"
           fi
      fi
 fi
@@ -104,7 +107,7 @@ do read -e -p 'Specify the absolute path of the compatible browser executable or
    fi
 done
 
-if [[ -z $BROWSER ]]
+if [[ -z $BROWSER ]] && [[ -z $UNGOOGLED_CHROMIUM ]]
 then read -e -p "Download 'Ungoogled Chromium' here [Y] or exit to install 'Chromium' or 'Google Chrome' manually [n]? "
      if [[ $REPLY =~ ^[nNmMbBтТьЬиИ] ]]
      then exit 0
@@ -113,26 +116,29 @@ then read -e -p "Download 'Ungoogled Chromium' here [Y] or exit to install 'Chro
             | grep -m 1 '><a' | sed 's/.*">//; s/<.*//'
           )"
           echo -n "Downloading 'Ungoogled Chromium $REMOTE_VERSION' for Linux 64bit ..."
-          SUFFIX="$REMOTE_VERSION/ungoogled-chromium_$(echo $REMOTE_VERSION)_linux.tar.xz"
-          ( wget -O ungoogled-chromium.tar.xz \
-                 https://github.com/ungoogled-software/ungoogled-chromium-portablelinux/releases/download/$SUFFIX \
+          NAME="ungoogled-chromium_$(echo $REMOTE_VERSION)_linux"
+          if [[ $NAME == $LOCAL_VERSION ]]
+          then echo "Error. 'Ungoogled Chromium $REMOTE_VERSION' is already installed" >&2
+               exit 2
+          fi
+          ( wget https://github.com/ungoogled-software/ungoogled-chromium-portablelinux/releases/download/$REMOTE_VERSION/$NAME.tar.xz \
                  2> download.log && \
             rm -rf download.log && \
             echo ' OK' ) || \
           ( echo ' FAIL'
             echo "See 'download.log' for details" >&2
             exit 2 )
-          echo -n "Decompressing 'ungoogled-chromium.tar.xz' ..."
-          ( tar -xf ungoogled-chromium.tar.xz 2> decompress.log && \
-            rm -rf ungoogled-chromium.tar.xz \
-                   ungoogled-chromium/chrome_* \
-                   ungoogled-chromium/chromed* \
+          echo -n "Decompressing '$NAME.tar.xz' ..."
+          ( tar -xf $NAME.tar.xz 2> decompress.log && \
+            rm -rf $NAME.tar.xz \
+                   $NAME/chrome_* \
+                   $NAME/chromed* \
                    decompress.log && \
             echo ' OK' ) || \
           ( echo ' FAIL'
             echo "See 'decompress.log' for details" >&2
             exit 2 )
-          BROWSER='ungoogled-chromium/chrome'
+          BROWSER="$NAME/chrome"
      fi
 fi
 
