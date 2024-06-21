@@ -27,9 +27,9 @@ As opposed to most other web-scrapers, this template does *not* require user to 
 2. Search for a compatible browser executables in the currect directory.
 3. If such is found, the prompt to use the latest version one or proceed is shown.
 4. Search for a compatible browser executables that could be runt by commands.
-5. If such is found, the promt tp use the latest verison one or proceed is shown.
-6. The prompt to specify the absolute path of the compatible browser executable (or its command) or proceed is shown.
-7. While user specifies non-compatible executable or command, the latter prompt is again shown.
+5. If such is found, the promt to use the latest verison one or proceed is shown.
+6. The prompt to specify the the compatible browser executable absolute path (its command) or proceed is shown.
+7. While user specifies non-compatible executable absolute path or command, the latter prompt is again shown.
 8. The prompt to download, install and use the latest **Ungoogled** **Chromium** automatically or exit to download certain compatible browser executable manually is shown.
 9. The compatible browser executable specified in one of the prior phases is executed on a virtual screen.
 10. The `scraper.pl` is launched and connected to this browser via local **WebSockets**.
