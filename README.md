@@ -22,8 +22,7 @@ As opposed to most other web-scrapers, this template does *not* require user to 
 **Perl** is in use, as it is installed on most **Linux** systems by default and it is effecient to process text with, which is essential for a parser to be written as soon as possible. In conclusion, it may be noted that this template can be succesfully executed in a **Docker** container with little to no modifications.
 
 ## Execution phases
-0. Installation of yet not installed required utilities from the list: **perl5**, **Xvfb**, **xwd**, **convert**.
-1. Decompression of the external librarie archive if it is not decompressed yet.
+0. Installation of yet not installed required utilities from the list: **perl5**, **Xvfb**, **xwd**, **convert**. Decompression of the external librarie archive if it is not decompressed yet.
 2. Search for a compatible browser executables in the currect directory. If such is found, the prompt to use the latest version one or proceed is shown.
 4. Search for a compatible browser executables that could be runt by commands. If such is found, the promt to use the latest verison one or proceed is shown.
 6. The prompt to specify the the compatible browser executable absolute path (its command) or proceed is shown. While user specifies non-compatible executable absolute path or command, this prompt is again shown.
