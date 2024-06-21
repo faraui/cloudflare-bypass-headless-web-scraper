@@ -32,6 +32,16 @@ As opposed to most other web-scrapers, this template does *not* require user to 
 11. During `scraper.pl` execution, https://cloudflare.com/ web-page is loaded and saved as `.pdf`.
 12. A virtual screen state is saved via **xwd** and then converted to `.png` via **convert**.
 
+## Structure
+```diff
+[ 1.1M] cloudflare-bypass-headless-web-scraper
+!! [  753] LICENSE.txt
+~~ [ 4.4K] README.md
+~~ [ 1.1M] extlib.tar.bz2
+++ [ 6.0K] main.sh
+~~ [ 1.0K] scraper.pl
+```
+
 ## Installation
 ```bash
 git clone https://github.com/faraui/cloudflare-bypass-headless-web-scraper.git
