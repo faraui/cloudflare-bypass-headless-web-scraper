@@ -26,7 +26,7 @@ As opposed to most other web-scrapers, this template does *not* require user to 
 1. Search for a compatible browser executables in the currect directory. If such are found, the prompt to use the latest version one or proceed is shown.
 2. If a browser executable was not declared in the previous phase, search for a compatible browser executables that could be runt by commands. If such are found, the promt to use the latest verison one or proceed is shown.
 3. If a browser executable was not declared in the previous phase, the prompt to either specify a compatible browser executable absolute path (its command) or proceed to phase 4 is shown. While the specified executable absolute path or command is non-compatible, this prompt is again shown.
-4. If a browser executable was not declared in the previous phase, the prompt to download, install and use the latest **Ungoogled** **Chromium** automatically or exit to download certain compatible browser executable manually is shown.
+4. If a browser executable was not declared in the previous phase, the prompt to download, install and use the latest **Ungoogled** **Chromium** automatically or interrupt execution is shown.
 5. The compatible browser executable specified in one of the prior phases is executed on a virtual screen.
 6. The `scraper.pl` is launched and connected to this browser via local **WebSockets**.
 7. During `scraper.pl` execution, https://cloudflare.com/ web-page is loaded and saved as `.pdf`.
