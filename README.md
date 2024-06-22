@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-ISC-lightblue.svg)](https://raw.githubusercontent.com/faraui/cloudflare-bypass-headless-web-scraper/main/LICENSE.txt)
 [![Stars](https://img.shields.io/badge/Stars->100-lightyellow.svg)](https://github.com/faraui/cloudflare-bypass-headless-web-scraper/stargazers)
 
-Headless web-scraper template that bypasses the **Cloudflare** IUAM protection. Working on **X** **v**irtual **f**rame **b**uffer (**Xvfb**) and **Perl** modified **WWW::Mechanize::Chrome** module.
+Headless web-scraper template that bypasses the **Cloudflare** **IUAM** protection. Working on **X** **v**irtual **f**rame **b**uffer (**Xvfb**) and **Perl** modified **WWW::Mechanize::Chrome** module.
 
 This modification involves neither new methods nor functions, but much of fixes and alterations, including the removal of functionality that is unnecessary for this template, such as **Windows**-specific requirements. This modified **WWW::Mechanize::Chrome** is provided here with all its dependencies, a total size of which, including **WWW::Mechanize::Chrome** itself, is less than 4.9 Mb.
 
