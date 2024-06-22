@@ -36,10 +36,12 @@ As opposed to most other web-scrapers, this template does *not* require user to 
 ```diff
 [ 1.1M] cloudflare-bypass-headless-web-scraper
 !! [  753] LICENSE.txt
-~~ [ 4.4K] README.md
+~~ [ 4.5K] README.md
 ~~ [ 1.1M] extlib.tar.bz2
 ++ [ 6.0K] main.sh
 ~~ [ 1.0K] scraper.pl
+
+5 files, 1 directory
 ```
 
 ## Installation
