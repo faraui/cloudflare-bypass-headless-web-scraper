@@ -23,14 +23,14 @@ As opposed to most other web-scrapers, this template does *not* require user to 
 
 ## Execution phases
 0. Installation of yet not installed required utilities from the list: **perl5**, **Xvfb**, **xwd**, **convert**. Decompression of the external librarie archive if it is not decompressed yet.
-2. Search for a compatible browser executables in the currect directory. If such are found, the prompt to use the latest version one or proceed is shown.
-3. Search for a compatible browser executables that could be runt by commands. If such are found, the promt to use the latest verison one or proceed is shown.
-4. The prompt to specify a compatible browser executable absolute path (its command) or proceed is shown. While the specified executable absolute path or command is non-compatible, this prompt is again shown.
-8. The prompt to download, install and use the latest **Ungoogled** **Chromium** automatically or exit to download certain compatible browser executable manually is shown.
-9. The compatible browser executable specified in one of the prior phases is executed on a virtual screen.
-10. The `scraper.pl` is launched and connected to this browser via local **WebSockets**.
-11. During `scraper.pl` execution, https://cloudflare.com/ web-page is loaded and saved as `.pdf`.
-12. A virtual screen state is saved via **xwd** and then converted to `.png` via **convert**.
+1. Search for a compatible browser executables in the currect directory. If such are found, the prompt to use the latest version one or proceed is shown.
+2. If a browser executable was not declared in the previous phase, search for a compatible browser executables that could be runt by commands. If such are found, the promt to use the latest verison one or proceed is shown.
+3. If a browser executable was not declared in the previous phase, the prompt to either specify a compatible browser executable absolute path (its command) or proceed to phase 4 is shown. While the specified executable absolute path or command is non-compatible, this prompt is again shown.
+4. If a browser executable was not declared in the previous phase, the prompt to download, install and use the latest **Ungoogled** **Chromium** automatically or exit to download certain compatible browser executable manually is shown.
+5. The compatible browser executable specified in one of the prior phases is executed on a virtual screen.
+6. The `scraper.pl` is launched and connected to this browser via local **WebSockets**.
+7. During `scraper.pl` execution, https://cloudflare.com/ web-page is loaded and saved as `.pdf`.
+8. A virtual screen state is saved via **xwd** and then converted to `.png` via **convert**.
 
 ## Structure
 ```diff
