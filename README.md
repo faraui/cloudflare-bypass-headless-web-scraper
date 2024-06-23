@@ -46,8 +46,8 @@ As opposed to most other web-scrapers, this template does *not* require user to 
 
 ## Installation
 ```bash
-git clone https://github.com/faraui/cloudflare-bypass-headless-web-scraper.git
-cd cloudflare-bypass-headless-web-scraper
+git clone -q https://github.com/faraui/cloudflare-bypass-headless-web-scraper.git && \
+cd cloudflare-bypass-headless-web-scraper && \
 chmod ugo+x main.sh
 ```
 
