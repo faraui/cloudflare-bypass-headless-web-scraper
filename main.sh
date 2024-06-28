@@ -13,6 +13,7 @@ then echo -n 'Installing requirements ...' >&2
      then INSTALL='pacman -Sy perl xorg-server-xvfb xwd ImageMagick --noconfirm'
      else echo ' FAIL' >&2
           echo 'Operating system cannot be identified' >&2
+          exit 2
      fi
      ( sudo $INSTALL > /dev/null 2> requirements.log && \
        rm -rf requirements.log && \
