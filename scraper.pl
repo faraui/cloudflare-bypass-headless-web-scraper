@@ -1,7 +1,6 @@
 use strict;
 use warnings;
-use utf8;
-binmode(STDOUT, ":utf8");
+use open qw( :std :encoding(UTF-8) );
 use Log::Log4perl qw(:easy);
 Log::Log4perl->easy_init($ERROR);
 use WWW::Mechanize::Chrome;
