@@ -4,41 +4,22 @@ sudo echo -n
 
 if ! command -v perl > /dev/null || ! command -v Xvfb > /dev/null \
 || ! command -v xwd > /dev/null || ! command -v convert > /dev/null
-then if [[ "$OSTYPE" == "linux-gnu"* ]]
-     then if [ -f /etc/debian_version ]
-          then echo -n 'Installing requirements ...'
-               ( sudo apt install -y perl Xvfb xwd ImageMagick > /dev/null 2> requirements.log && \
-                 rm -rf requirements.log && \
-                 echo ' OK' ) || \
-               ( echo ' FAIL'
-                 echo "See 'requirements.log' for details" >&2
-                 exit 2 )
-          elif [ -f /etc/redhat-release ]
-          then echo -n 'Installing requirements ...'
-               ( sudo yum install -y perl xorg-x11-server-Xvfb xwd ImageMagick > /dev/null 2> requirements.log && \
-                 rm -rf requirements.log && \
-                 echo ' OK' ) || \
-               ( echo ' FAIL'
-                 echo "See 'requirements.log' for details" >&2
-                 exit 2 )
-          elif [ -f /etc/arch-release ]
-          then echo -n 'Installing requirements ...'
-               ( sudo pacman -Sy perl xorg-server-xvfb xwd ImageMagick --noconfirm > /dev/null 2> requirements.log && \
-                 rm -rf requirements.log && \
-                 echo ' OK' ) || \
-               ( echo ' FAIL'
-                 echo "See 'requirements.log' for details" >&2
-                 exit 2 )
-          fi
-     elif [[ "$OSTYPE" == "darwin"* ]]
-     then if ! command -v brew > /dev/null
-          then /bin/bash -c "$(curl -fsSL
-               https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          fi
-          yes | brew install perl > /dev/null
-          yes | brew install XQuartz > /dev/null
-          yes | brew install imagemagick > /dev/null
+then echo -n 'Installing requirements ...' >&2
+     if [ -f /etc/debian_version ]
+     then INSTALL='apt-get install -y perl Xvfb xwd ImageMagick'
+     elif [ -f /etc/redhat-release ]
+     then INSTALL='yum install -y perl xorg-x11-server-Xvfb xwd ImageMagick'
+     elif [ -f /etc/arch-release ]
+     then INSTALL='pacman -Sy perl xorg-server-xvfb xwd ImageMagick --noconfirm'
+     else echo ' FAIL' >&2
+          echo 'Operating system cannot be identified' >&2
      fi
+     ( sudo $INSTALL > /dev/null 2> requirements.log && \
+       rm -rf requirements.log && \
+       echo ' OK' >&2 ) || \
+     ( echo ' FAIL' >&2
+       echo "See 'requirements.log' for details" >&2
+       exit 2 )
 fi
 
 if [ -s extlib.tar.bz2 ]
