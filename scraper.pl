@@ -1,5 +1,7 @@
 use strict;
 use warnings;
+use utf8;
+binmode(STDOUT, ":utf8");
 use Log::Log4perl qw(:easy);
 Log::Log4perl->easy_init($ERROR);
 use WWW::Mechanize::Chrome;
@@ -17,13 +19,13 @@ my $mech = WWW::Mechanize::Chrome->new(
    mute_audio => 0,            # Disable audio channel
 );
 
-print "Web-scraper execution ...";
+print STDERR "Web-scraper execution ...";
 
 $mech->get('https://www.cloudflare.com/');
-$mech->sleep( 6 );
+$mech->sleep( 8 );
 
 my $page_pdf = $mech->content_as_pdf(
    filename => 'cloudflare.pdf',
 );
 
-print " OK\n";
+print STDERR " OK\n";
