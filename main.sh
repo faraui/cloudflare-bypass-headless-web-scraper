@@ -126,7 +126,6 @@ fi
 Xvfb :9222 &
 
 DISPLAY=:9222 $BROWSER \
---no-sandbox \
 --disable-gpu \
 --disable-software-rasterizer \
 --remote-debugging-port=9222 \
