@@ -126,6 +126,11 @@ fi
 Xvfb :9222 &
 
 DISPLAY=:9222 $BROWSER \
+--ignore-certificate-errors \
+--disable-web-security \
+--allow-running-insecure-content \
+--load-extension \
+--password-store=basic \
 --disable-gpu \
 --disable-software-rasterizer \
 --remote-debugging-port=9222 \
