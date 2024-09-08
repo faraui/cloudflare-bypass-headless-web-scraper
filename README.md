@@ -1,7 +1,7 @@
 # cloudflare-bypass-headless-web-scraper
 [![Author](https://img.shields.io/badge/Author-@faraui-lightgreen.svg)](https://github.com/faraui)
 [![License](https://img.shields.io/badge/License-ISC-lightblue.svg)](https://raw.githubusercontent.com/faraui/cloudflare-bypass-headless-web-scraper/main/LICENSE.txt)
-[![Stars](https://img.shields.io/badge/Stars-19-lightyellow.svg)](https://github.com/faraui/cloudflare-bypass-headless-web-scraper/stargazers)
+[![Stars](https://img.shields.io/badge/Stars-21-lightyellow.svg)](https://github.com/faraui/cloudflare-bypass-headless-web-scraper/stargazers)
 
 Headless web-scraper template that bypasses the **Cloudflare** **IUAM** protection. Working on **X** **v**irtual **f**rame **b**uffer (**Xvfb**) and **Perl** modified **WWW::Mechanize::Chrome** module.
 
